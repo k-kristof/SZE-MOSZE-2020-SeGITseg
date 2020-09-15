@@ -10,7 +10,7 @@ private:
 	const std::string name;
 	int hp;
 	int dmg;
-  friend std::ostream & operator<<(std::ostream &o, const Unit* u);
+	friend std::ostream & operator<<(std::ostream &o, const Unit* u);
 
 public:
 	Unit(std::string name, int hp, int dmg);
