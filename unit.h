@@ -10,17 +10,15 @@ private:
 	const std::string name;
 	int hp;
 	int dmg;
-	friend std::ostream & operator<<(std::ostream &o, const Unit* u);
+	friend std::ostream &operator<<(std::ostream &o, const Unit &u);
 
 public:
 	Unit(std::string name, int hp, int dmg);
 	std::string getName() const;
 	int getHp() const;
 	int getDmg() const;
-	void setHp(int new_hp);
-	void attack(Unit* other);
+	void setHp(int newHp);
+	void attack(Unit &other);
 };
 
-
 #endif
-
