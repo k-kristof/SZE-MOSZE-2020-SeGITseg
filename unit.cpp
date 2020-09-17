@@ -23,9 +23,11 @@ void Unit::fight(Unit &other)
 {
 	int attHP = hp;
 	int defHP = other.getHp();
+	
 	std::cout << name << ": HP: " << attHP << ", DMG: " << other.getDmg() << std::endl;
 	std::cout << other.getName() << ": HP: " << defHP << ", DMG: " << other.getDmg() << std::endl;
-	while (defHP > 0)
+
+	while (defHP > 0 && attHP > 0)
 	{
 		std::cout << name << " -> " << other.getName() << std::endl;
 		defHP = defHP - dmg;
@@ -35,9 +37,7 @@ void Unit::fight(Unit &other)
 		std::cout << other.getName() << ": HP: " << defHP << ", DMG: " << other.getDmg() << std::endl;
 
 		if (defHP == 0)
-		{
 			break;
-		}
 
 		std::cout << other.getName() << " -> " << name << std::endl;
 		attHP = attHP - other.getDmg();
