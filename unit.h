@@ -8,17 +8,15 @@ class Unit
 {
 private:
 	const std::string name;
-	int hp;
-	int dmg;
-	friend std::ostream &operator<<(std::ostream &o, const Unit &u);
+	const int hp;
+	const int dmg;
 
 public:
-	Unit(std::string name, int hp, int dmg);
+	Unit(const std::string name, const int hp, const int dmg);
 	std::string getName() const;
 	int getHp() const;
 	int getDmg() const;
-	void setHp(int newHp);
-	void attack(Unit &other);
+	void fight(Unit &other);
 };
 
 #endif
