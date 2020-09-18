@@ -21,33 +21,23 @@ int Unit::getDmg() const
 
 void Unit::fight(Unit &other)
 {
-	int attHP = hp;
-	int defHP = other.getHp();
-
-	std::cout << name << ": HP: " << attHP << ", DMG: " << dmg << std::endl;
-	std::cout << other.getName() << ": HP: " << defHP << ", DMG: " << other.getDmg() << std::endl;
-
-	while (defHP > 0 && attHP > 0)
+	while (hp > 0)
 	{
 		std::cout << name << " -> " << other.getName() << std::endl;
-		defHP = defHP - dmg;
-		if (defHP < 0)
-			defHP = 0;
-		std::cout << name << ": HP: " << attHP << ", DMG: " << dmg << std::endl;
-		std::cout << other.getName() << ": HP: " << defHP << ", DMG: " << other.getDmg() << std::endl;
+		(other.getHp() - dmg > 0) ? other.hp -= dmg : other.hp = 0;
+		std::cout << *this << other;
 
-		if (defHP == 0)
+		if (other.getHp() == 0)
+		{
 			break;
+		}
 
 		std::cout << other.getName() << " -> " << name << std::endl;
-		attHP = attHP - other.getDmg();
-		if (attHP < 0)
-			attHP = 0;
-		std::cout << name << ": HP: " << attHP << ", DMG: " << dmg << std::endl;
-		std::cout << other.getName() << ": HP: " << defHP << ", DMG: " << other.getDmg() << std::endl;
+		(hp - other.getDmg() > 0) ? hp -= other.dmg : hp = 0;
+		std::cout << *this << other;
 	}
 
-	if (defHP == 0)
+	if (other.getHp() == 0)
 	{
 		std::cout << other.getName() << " died. " << name << " wins.\n";
 	}
@@ -55,4 +45,9 @@ void Unit::fight(Unit &other)
 	{
 		std::cout << name << " died. " << other.getName() << " wins.\n";
 	}
+}
+
+std::ostream &operator<<(std::ostream &out, const Unit &u)
+{
+	return out << u.getName() << ": HP: " << u.getHp() << ", DMG: " << u.getDmg() << "\n";
 }

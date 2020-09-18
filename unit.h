@@ -8,7 +8,7 @@ class Unit
 {
 private:
 	const std::string name;
-	const int hp;
+	int hp;
 	const int dmg;
 
 public:
@@ -17,6 +17,7 @@ public:
 	int getHp() const;
 	int getDmg() const;
 	void fight(Unit &other);
+	friend std::ostream &operator<<(std::ostream &out, const Unit &u);
 };
 
 #endif
