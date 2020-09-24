@@ -11,7 +11,7 @@ jobs:
       - name: Compile code with g++
         run: g++ -std=c++17 *.cpp
       - name: Make test script executable
-        run: chmod u+r+x run_test.sh
+        run: chmod +x run_test.sh
       - name: Execute test script
         run: ./run_test.sh
       - name: Evaluate test results
