@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "unit.h"
 
 Unit::Unit(const std::string name, const int hp, const int dmg)
@@ -44,7 +45,7 @@ Unit Unit::parseUnit(std::string fileName)
 	int hp = 0;
 	int dmg = 0;
 
-	std::ifstream file("units/" + fileName, std::ifstream::in);
+	std::ifstream file("units/" + fileName);
 
 	if (!file.fail() && file.is_open()) {
 		std::string line;
