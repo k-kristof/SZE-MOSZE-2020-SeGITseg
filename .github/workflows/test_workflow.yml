@@ -8,5 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: g++ -std=c++17 *.cpp
-      - run: ./run_test.sh
+      - name: Compile code with g++
+        run: g++ -std=c++17 *.cpp
+      - name: Make test script executable
+        run: chmod +x run_test.sh
+      - name: Execute test script
+        run: ./run_test.sh
+      - name: Evaluate test results
+        run: diff test/results.txt test/expected_results.txt
