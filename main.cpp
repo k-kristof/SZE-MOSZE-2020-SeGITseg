@@ -12,8 +12,6 @@ int main(int argc, char* argv[])
 			Unit A = Unit::parseUnit(argv[1]);
 			Unit B = Unit::parseUnit(argv[2]);
 
-			std::cout << A << B;
-
 			A.fight(B);
 		}
 		catch (std::runtime_error& e) {
