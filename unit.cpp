@@ -37,13 +37,11 @@ void Unit::fight(Unit &other)
 		std::cout << *this << other;
 	}
 
-	if (other.getHp() == 0)
-	{
-		std::cout << other.getName() << " died. " << name << " wins.\n";
+	if (other.getHp() == 0) {
+		std::cout << name << " wins. Remaining HP: " << hp << std::endl;
 	}
-	else
-	{
-		std::cout << name << " died. " << other.getName() << " wins.\n";
+	else {
+		std::cout << other.getName() << " wins. Remaining HP: " << other.getHp() << std::endl;
 	}
 }
 
