@@ -9,5 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: g++ -std=c++17 *.cpp
+      - run: chmod u+r+x run_test.sh
       - run: ./run_test.sh
       - run: diff test/results.txt test/expected_results.txt
