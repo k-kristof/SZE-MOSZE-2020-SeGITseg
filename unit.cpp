@@ -44,7 +44,7 @@ Unit Unit::parseUnit(std::string fileName)
 	int hp = 0;
 	int dmg = 0;
 
-	std::ifstream file("units/" + fileName);
+	std::ifstream file("units/" + fileName, std::ifstream::in);
 
 	if (!file.fail() && file.is_open()) {
 		std::string line;
